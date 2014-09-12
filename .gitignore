@@ -1,28 +1,91 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+// Algoritmos.cpp : main project file.
 
-# Precompiled Headers
-*.gch
-*.pch
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "stdio.h"
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+using namespace System;
 
-# Fortran module files
-*.mod
+void main(){
+	int vec[50],i,n;
+	cout<<"Ingrese tamaño del vector:";
+	cin>>n;
+	cout<<"Ingrese los elentos del vector:";
+	for(i=0;i<n;i++){
+		cin >> vec[i];
+	}
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+}
 
-# Executables
-*.exe
-*.out
-*.app
+bool verifPrimo(int n){
+	int c=0,i=0,d;
+	bool k=false;
+	while(i<n){
+		d=n/i;
+		if(i%2==0)
+			c++;
+		i++
+	}
+	if(c==2)
+		k=true;
+	return(k);
+}
+
+int cantDigPrimos(int n){
+	int c=0;
+	while(n>0){
+		if(verifPrimo(n%10)==true)
+			c++;
+		n=n/10;
+	}
+	return(c);
+}
+
+bool verifFibo(int n){
+	int a=-1,b=1,c=0;
+	bool k=false;
+	if(n==0)
+		k=true;
+	while(c<n){
+		c=a+b;
+		a=b;
+		b=c;
+		if(c==n)
+		 k=true;
+	}
+	return(k);
+}
+
+void ordenar(int vec[],int n){
+	int aux,i;
+	for(i=0;i<n;i++){
+		for(j=i+1;j<n;j++){
+			if(vec[i]>vec[j]){
+				aux=vec[j];
+				vec[i]=vec[j];
+				vec[j]=aux;
+			}
+		}
+	}
+}
+
+int comparar(vec[],int a){
+		for(i=0;i<n;i++){
+			if(vec[i]==n)
+				return(1);
+		}
+	return(0);
+}
+			
+
+ordenar(int vec[],int n){
+	int aux[50],i,naux=0;
+	for(i=0;i<n;i++){
+		if(verifFibo(vec[i])==true&&cantDigPrimos(vec[i])<(cantDig(vec[i])/2)){
+			aux[i]=vec[i];
+			naux++;
+		}
+	}
+	ordenar(aux,naux);
+	for(i=0;i<n;i++){
